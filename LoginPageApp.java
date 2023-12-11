@@ -35,25 +35,34 @@ public class LoginPageApp {
 
     private static void start() {
         Scanner input = new Scanner(System.in);
-        //show a menu
+        //create a service object
+UserService service = new UserService();
 
+        //show a menu
         int select;
         do {
             System.out.println(" ==== WELlCOME === ");
             System.out.println(" 1) Sign-up");
             System.out.println(" 2) Log-in");
             System.out.println(" 0) Exit");
+            System.out.println("Please enter your selection: ");
 
             select = input.nextInt();
 
             switch (select) {
                 case 1:
+                    service.signup();
                     break;
 
                 case 2:
+                    service.login();
                     break;
 
                 case 0:
+                    System.out.println("Good bye!");
+                    break;
+                default:
+                    System.out.println("Failed attempt. Please, try again.");
                     break;
             }
 
